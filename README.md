@@ -1,6 +1,6 @@
-# MERN-TODO Application
+# PERN-TODO Application
 
-A full-stack TODO list application built with the MERN stack (MongoDB, Express.js, React, Node.js). This application allows users to register, log in, and manage their personal to-do lists.
+A full-stack TODO list application built with the PERN stack (PostgreSQL, Express.js, React, Node.js). This application allows users to register, log in, and manage their personal to-do lists.
 
 ## Features
 
@@ -13,12 +13,12 @@ A full-stack TODO list application built with the MERN stack (MongoDB, Express.j
 
 - **Frontend**: React.js
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB
+- **Database**: PostgreSQL
 - **Development**: Nodemon for backend auto-reloading.
 
 ## Project Structure
 
-The project uses a monorepo structure, with the frontend and backend code separated into their own directories.
+The project is structured with separate directories for the backend API and the frontend client.
 
 ```
 MERN-TODO/
@@ -40,6 +40,9 @@ Make sure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/en/) (v14 or newer)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - [MongoDB](https://www.mongodb.com/try/download/community). Make sure your MongoDB server is running.
+- [Node.js](https://nodejs.org/en/) (v14 or newer)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [PostgreSQL](https://www.postgresql.org/download/). Make sure your PostgreSQL server is running.
 
 ### Installation
 
@@ -74,6 +77,8 @@ This project uses environment variables to handle sensitive information like dat
     ```env
     # MongoDB Connection
     MONGO_URI=mongodb://localhost:27017/your_db_name
+    # PostgreSQL Connection
+    DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/your_db_name"
 
     # JSON Web Token Secret
     JWT_SECRET=your_jwt_secret
