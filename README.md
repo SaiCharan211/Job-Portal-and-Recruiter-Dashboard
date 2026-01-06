@@ -21,7 +21,7 @@ A full-stack TODO list application built with the PERN stack (PostgreSQL, Expres
 The project is structured with separate directories for the backend API and the frontend client.
 
 ```
-MERN-TODO/
+Job_Portal/
 ├── backend/         # Express.js REST API
 └── frontend/
     └── client/      # React Application
@@ -39,7 +39,6 @@ Make sure you have the following installed on your machine:
 
 - [Node.js](https://nodejs.org/en/) (v14 or newer)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [MongoDB](https://www.mongodb.com/try/download/community). Make sure your MongoDB server is running.
 - [Node.js](https://nodejs.org/en/) (v14 or newer)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - [PostgreSQL](https://www.postgresql.org/download/). Make sure your PostgreSQL server is running.
@@ -75,8 +74,6 @@ This project uses environment variables to handle sensitive information like dat
     Create a `.env` file in the `backend` directory and add the following variables.
 
     ```env
-    # MongoDB Connection
-    MONGO_URI=mongodb://localhost:27017/your_db_name
     # PostgreSQL Connection
     DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/your_db_name"
 
