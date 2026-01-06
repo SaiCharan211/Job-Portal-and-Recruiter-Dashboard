@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(JOBSEEKER)
+  createdAt DateTime @default(now())
+
+  jobs         Job[]         @relation("RecruiterJobs")
+  applications Application[]
+}
+
+model Job {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  location    String
+  skills      String[]
+  recruiterId Int
+  createdAt   DateTime @default(now())
+
+  recruiter    User          @relation("RecruiterJobs", fields: [recruiterId], references: [id])
+  applications Application[]
+}
+
+/// model Application {
+///  id        Int      @id @default(autoincrement())
+///  status    String   @default("APPLIED")
+///  userId    Int
+///  jobId     Int
+///  createdAt DateTime @default(now())
+
+///  user User @relation(fields: [userId], references: [id])
+///  job  Job  @relation(fields: [jobId], references: [id])
+/// }
+
+
+model Application {
+  id          Int      @id @default(autoincrement())
+  status      String   @default("APPLIED")
+  atsScore    Float?   // ATS match percentage
+  matchedSkills String[]
+  resumeText  String?
+  userId      Int
+  jobId       Int
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  job  Job  @relation(fields: [jobId], references: [id])
+}
+
+
+enum Role {
+  JOBSEEKER
+  RECRUITER
+  ADMIN
+}
